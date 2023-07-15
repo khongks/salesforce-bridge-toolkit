@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "ReplayId": {
+      "title": "Replay ID",
+      "description": "Specify the replay ID. If a replay ID is not provided, it defaults to -1. For more information, see https://developer.salesforce.com/docs/atlas.en-us.api_streaming.meta/api_streaming/using_streaming_api_durability.htm.",
+      "type": "string"
+    },
+    "CreatedDate": {
+      "title": "Created Date",
+      "type": "string",
+      "format": "date-time"
+    },
+    "CreatedById": {
+      "title": "Created By ID",
+      "type": "string"
+    },
+    "EventUuid": {
+      "title": "Event UUID",
+      "type": "string"
+    },
+    "Name__c": {
+      "title": "Name",
+      "type": "string"
+    },
+    "Phone__c": {
+      "title": "Phone",
+      "type": "string"
+    },
+    "schema": {
+      "title": "schema",
+      "description": "schema",
+      "type": "string"
+    },
+    "event": {
+      "title": "event",
+      "description": "event",
+      "type": "object",
+      "properties": {
+        "replayId": {
+          "title": "replayId",
+          "description": "replayId",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "title": "MQ_Event__e",
+  "additionalProperties": false
+}

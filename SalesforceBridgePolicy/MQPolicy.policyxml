@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policies>
+  <policy policyType="MQEndpoint" policyName="MQPolicy" policyTemplate="MQEndpoint">
+    <connection>CLIENT</connection>
+    <destinationQueueManagerName>SMALLQM</destinationQueueManagerName>
+    <queueManagerHostname>smallqm-ibm-mq.mq.svc.cluster.local</queueManagerHostname>
+    <listenerPortNumber>1414</listenerPortNumber>
+    <channelName>SMALLQMCHL_NOTLS</channelName>
+    <CCDTUrl></CCDTUrl>
+    <securityIdentity></securityIdentity>
+    <useSSL>false</useSSL>
+    <SSLPeerName></SSLPeerName>
+    <SSLCipherSpec></SSLCipherSpec>
+    <SSLCertificateLabel></SSLCertificateLabel>
+    <MQApplName>SalesforceBridge</MQApplName>
+    <reconnectOption>default</reconnectOption>
+  </policy>
+</policies>

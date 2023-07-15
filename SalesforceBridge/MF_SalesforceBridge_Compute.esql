@@ -1,0 +1,41 @@
+
+
+CREATE COMPUTE MODULE MF_SalesforceBridge_Compute
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		CALL CopyMessageHeaders();
+		-- CALL CopyEntireMessage();
+--{
+--  "ReplayId": "ABCDEFGHIJKLMNOP",
+--  "CreatedDate": "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
+--  "CreatedById": "ABCDE",
+--  "EventUuid": "ABCDEFG",
+--  "Name__c": "ABCDEFGHIJKLM",
+--  "Phone__c": "ABCDEF",
+--  "schema": "ABCD",
+--  "event": {
+--    "replayId": "ABCDEFGHIJ"
+--  }
+--}
+		SET OutputRoot.JSON.Data.ReplayId = InputRoot.JSON.Data.RepladId;
+		SET OutputRoot.JSON.Data.CreatedDate = InputRoot.JSON.Data.CreatedDate;
+		SET OutputRoot.JSON.Data.CreatedById = InputRoot.JSON.Data.CreatedById;
+		SET OutputRoot.JSON.Data.Name = InputRoot.JSON.Data.Name__c;
+		SET OutputRoot.JSON.Data.Phone = InputRoot.JSON.Data.Phone__c;
+		RETURN TRUE;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;
