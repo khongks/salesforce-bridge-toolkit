@@ -17,11 +17,16 @@ CREATE COMPUTE MODULE MF_SalesforceBridge_Compute
 --    "replayId": "ABCDEFGHIJ"
 --  }
 --}
-		SET OutputRoot.JSON.Data.ReplayId = InputRoot.JSON.Data.RepladId;
-		SET OutputRoot.JSON.Data.CreatedDate = InputRoot.JSON.Data.CreatedDate;
-		SET OutputRoot.JSON.Data.CreatedById = InputRoot.JSON.Data.CreatedById;
-		SET OutputRoot.JSON.Data.Name = InputRoot.JSON.Data.Name__c;
-		SET OutputRoot.JSON.Data.Phone = InputRoot.JSON.Data.Phone__c;
+	 	SET OutputRoot.Properties.MessageFormat = 'Text1';
+		CREATE LASTCHILD OF OutputRoot DOMAIN 'JSON';
+		CREATE FIELD OutputRoot.JSON.Data IDENTITY(JSON.Object)Data;
+		DECLARE refIn REFERENCE TO InputRoot.JSON.Data;
+		DECLARE refOut REFERENCE TO OutputRoot.JSON.Data;
+		SET refOut.ReplayId = refIn.ReplayId;
+		SET refOut.CreatedDate = refIn.CreatedDate;
+		SET refOut.CreatedById = refIn.CreatedById;
+		SET refOut.Name = refIn.Name__c;
+		SET refOut.Phone = refIn.Phone__c;
 		RETURN TRUE;
 	END;
 
