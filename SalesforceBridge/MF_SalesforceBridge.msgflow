@@ -7,9 +7,9 @@
     <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/SalesforceBridge/icons/full/obj16/MF_SalesforceBridge.gif"/>
     <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/SalesforceBridge/icons/full/obj30/MF_SalesforceBridge.gif"/>
     <composition>
-      <nodes xmi:type="ComIbmApplicationConnectorInput_salesforce.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="10,20" applicationConnectorType="salesforce" action="CREATED" businessObject="MQ_Event__e" displayName="New mq event" schemaPrefix="gen/MF_SalesforceBridge.Salesforce_Input" policyUrl="{SalesforceBridgePolicy}:Salesforce1" messageSetProperty="gen/MF_SalesforceBridge.Salesforce_Input.response.schema.json">
+      <nodes xmi:type="ComIbmApplicationConnectorInput_salesforce.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="10,20" applicationConnectorType="salesforce" action="CREATED" businessObject="MQ_Event__e" displayName="undefined" schemaPrefix="gen/MF_SalesforceBridge.Salesforce_Input" policyUrl="{SalesforceBridgePolicy}:Salesforce1" messageSetProperty="gen/MF_SalesforceBridge.Salesforce_Input.response.schema.json">
         <translation xmi:type="utility:ConstantString" string="Salesforce Input"/>
-        <connectorProperty propertyName="ReplayId" displayName="Replay ID" propertyValue="-1" type="subscription"/>
+        <connectorProperty propertyName="ReplayId" displayName="Replay ID" propertyValue="-2" type="subscription"/>
       </nodes>
       <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="238,20" computeExpression="esql://routine/#MF_SalesforceBridge_Compute.Main" computeMode="all">
         <translation xmi:type="utility:ConstantString" string="Compute"/>
